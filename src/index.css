@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #05070d;
+  --bg-soft: #080b14;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #e7ecf5;
+  --text-dim: #93a1b8;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #22d3ee;
+}
+
+html.light {
+  --bg: #f4f7fb;
+  --bg-soft: #eaf0f8;
+  --surface: rgba(10, 20, 40, 0.04);
+  --surface-strong: rgba(10, 20, 40, 0.07);
+  --border: rgba(10, 20, 40, 0.08);
+  --text: #0d1424;
+  --text-dim: #4a566b;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+  background: var(--accent-cyan);
+  color: #05070d;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan));
+  border-radius: 999px;
+  border: 2px solid var(--bg-soft);
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.text-dim {
+  color: var(--text-dim);
+}
+
+.bg-app {
+  background-color: var(--bg);
+}
+
+.bg-app-soft {
+  background-color: var(--bg-soft);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple span.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleAnim 600ms linear;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+@keyframes rippleAnim {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* Skill progress bar fill animation trigger via inline style + transition */
+.progress-fill {
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
