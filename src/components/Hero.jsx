@@ -95,7 +95,7 @@ export default function Hero() {
           {/* soft glow anchored behind the subject, no hard frame */}
           <div className="absolute inset-x-6 top-10 bottom-0 rounded-full bg-gradient-to-b from-accent-blue/30 to-accent-cyan/20 blur-3xl opacity-70 animate-float-slow" />
           <img
-            src="/profile-duotone.png"
+            src="/profile-natural.png"
             alt="Hashim"
             className="relative w-full h-auto drop-shadow-[0_0_50px_rgba(34,211,238,0.25)] animate-float-slow"
           />
